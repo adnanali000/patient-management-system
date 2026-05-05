@@ -1,0 +1,50 @@
+# --- OS ---
+.DS_Store
+Thumbs.db
+
+# --- Secrets & local config (never commit) ---
+.env
+.env.*
+!.env.example
+*.pem
+**/application-local.properties
+**/application-local.yml
+
+# --- Maven (all services) ---
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+release.properties
+.mvn/wrapper/maven-wrapper.jar
+
+# --- Gradle (if you add Gradle services later) ---
+.gradle/
+**/build/
+!**/src/**/build/
+
+# --- IDE ---
+.idea/
+*.iml
+*.ipr
+*.iws
+.project
+.classpath
+.settings/
+.factorypath
+.apt_generated/
+.sts4-cache/
+.springBeans
+
+# --- VS Code / Cursor (optional: delete next line if you want to share workspace settings) ---
+.vscode/
+
+# --- Logs & temp ---
+*.log
+*.tmp
+*.swp
+*~
+
+# --- Docker local overrides ---
+docker-compose.override.yml
+**/docker-compose.override.yml
