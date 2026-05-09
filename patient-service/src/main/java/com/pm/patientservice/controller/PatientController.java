@@ -13,9 +13,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
+import java.util.UUID;
 
 import com.pm.patientservice.dto.PatientRequestDTO;
 import com.pm.patientservice.dto.PatientResponseDTO;
+import com.pm.patientservice.dto.PatientUpdateRequestDTO;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
 
 @RestController
 @RequestMapping("/patients")
@@ -36,7 +41,13 @@ public class PatientController {
     public ResponseEntity<PatientResponseDTO> createPatient(
             @Valid @RequestBody PatientRequestDTO patientRequestDTO) {
         PatientResponseDTO patientResponseDTO = patientService.createPatient(patientRequestDTO);
-        return ResponseEntity.ok(patientResponseDTO);
+        return ResponseEntity.ok().body(patientResponseDTO);
     }
 
+    @PutMapping("/{id}")
+    public ResponseEntity<PatientResponseDTO> updatePatient(@PathVariable UUID id,
+            @Valid @RequestBody PatientUpdateRequestDTO patientUpdateRequestDTO) {
+        PatientResponseDTO patientResponseDTO = patientService.updatePatient(id, patientUpdateRequestDTO);
+        return ResponseEntity.ok().body(patientResponseDTO);
+    }
 }
