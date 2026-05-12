@@ -48,3 +48,6 @@ release.properties
 # --- Docker local overrides ---
 docker-compose.override.yml
 **/docker-compose.override.yml
+
+# --- Local Postgres data (docker bind mount) ---
+db_volumes/
